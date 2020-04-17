@@ -1,0 +1,124 @@
+---
+title: "Assignment Module 3"
+output: html_notebook
+---
+
+This is an [R Markdown](http://rmarkdown.rstudio.com) Notebook. When you execute code within the notebook, the results appear beneath the code. 
+
+Try executing this chunk by clicking the *Run* button within the chunk or by placing your cursor inside it and pressing *Ctrl+Shift+Enter*. 
+
+```{r}
+#1. Install the packages 
+
+install.packages("R6")
+library(R6)
+
+```
+
+
+```{r}
+#2. New class / Object generator 
+
+player_generator <- R6Class("player", private = list(Player_Name = NA , Player_Club = NA , Player_Salary = NA),
+                            public = list(set_name = function(x){private$Player_Name = x},
+                                          set_club = function(x){private$Player_Club = x},
+                                          set_sal  = function(x){private$Player_Salary = x}
+                              ))
+
+class(player_generator)
+player_generator
+```
+
+```{r}
+#3, create two new objects and assign value 
+
+player1 <- player_generator$new()
+player1
+player1$set_name("Ronaldo")
+player1$set_club("Manchester United")
+player1$set_sal(10000)
+player1
+
+
+player2 <- player_generator$new()
+player2
+
+player2$set_name("Messi")
+player2$set_club("Barcelona")
+player2$set_sal(5000)
+player2
+```
+
+```{r}
+#4 New class generator "Movie Generator"
+
+movie_generator <- R6Class("movie", private = list(Movie_Name =NA , Protagonist_Name = NA, Movie_Budget = NA),
+                           public = list(
+                             set_name      = function(x){private$Movie_Name = x},
+                             set_pro_name  = function(x){private$Protagonist_Name = x},
+                             set_budget    = function(x){private$Movie_Budget =x}
+                           ))
+
+
+
+movie1 <- movie_generator$new()
+movie1
+
+movie1$set_name("3 Idiots")
+movie1$set_pro_name("Virus")
+movie1$set_budget(5000)
+
+movie1
+##Intialise
+
+movie_generator <- R6Class("movie", private = list(Movie_Name =NA , Protagonist_Name = NA, Movie_Budget = NA),
+                           public = list(
+                            initialize = function(x,y,z){
+                                 private$Movie_Name =x
+                                 private$Protagonist_Name = y
+                                 private$Movie_Budget =z
+                               }))
+```
+
+
+```{r}
+#5. Intialise method - assign value to private data _____________________
+movie2 <- movie_generator$new("3 idiots" , "virus" , 1000)
+movie2
+```
+
+
+```{r}
+#6. Vegetable creator 
+
+Vegetable_Generator <- R6Class("vegetable", private = list(Vegetable_Name = NA , Vegetable_Cost = NA),
+                                              public = list(
+                                                initialize = function(x,y){
+                                                  private$Vegetable_Name = x
+                                                  private$Vegetable_Cost = y
+                                                }
+                                              ))
+
+vegetable1 <- Vegetable_Generator$new("Tomato" , 10)
+vegetable1
+```
+
+
+```{r}
+
+#7 Active bindings 
+
+Vegetable_Generator2 <- R6Class("vegetable", private = list(..Vegetable_Name = NA , ..Vegetable_Cost = NA),
+                               active = list(
+                                 name = function(x){private$..Vegetable_Name = x},
+                                 cost = function(x){private$..Vegetable_Cost = x} 
+                               ))
+
+vegetable2 <- Vegetable_Generator2$new()
+vegetable2
+
+vegetable2$name <- "Tomatina"
+vegetable2$cost <- 45
+vegetable2
+```
+
