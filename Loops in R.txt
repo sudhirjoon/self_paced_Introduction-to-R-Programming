@@ -1,0 +1,104 @@
+
+#IF and ELSE condition in R
+
+sub_1 <- 90
+sub_2 <- 80
+sub_3 <- 29
+sub_4 <- 11
+sub_5 <- 99
+
+passing_marks <- 250
+Total_marks <- sum(sub_1,sub_2,sub_3,sub_4,sub_5)
+
+if(Total_marks>passing_marks){
+  v0 <- paste("You scored" , Total_marks)
+  print(V0)
+  print("You have passed the exam")
+  }else
+{
+  v0 <- paste("You scored ", Total_marks)
+  
+  
+  marks_required <- passing_marks - Total_marks
+  v1 <- "Additional marks required are"
+  v2 <- paste(v1, marks_required)
+  
+  print(v0)
+  print (v2)
+  print("Please apply again for the exam") 
+}
+
+#Else if
+
+sub_1 <- 38
+sub_2 <- 80
+sub_3 <- 01
+sub_4 <- 78
+sub_5 <- 49
+
+Total_marks <- sum(sub_1,sub_2,sub_3,sub_4,sub_5)
+
+if(Total_marks >= 400){
+  v3 <-paste("your score is",Total_marks)
+  print(v3)
+    print("your grade is EXCELLENT")
+  } else if (Total_marks >= 300){
+  v3 <-paste("your score is",Total_marks)
+  print(v3)
+    print("your grade is VERY GOOD")
+  }else if (Total_marks >= 250){
+    v3 <-paste("your score is",Total_marks)
+    print(v3)
+    print("Your grade is GOOD")
+  }  else {
+  v3 <-paste("your score is",Total_marks)
+  print(v3)
+  print("Unfortunately you haven't passed the exam")
+  }
+
+#While loop ________________________________________________________________________
+
+shopping_money <- 100
+i <- 1
+
+while (shopping_money > 30) {
+  v1 <- i
+  v2 <- "Lets shop for:"
+  v3 <-"th time"
+  
+  v4 <- paste(v2,v1,v3)
+  print(v4)
+  
+  i = i+1
+  
+  shopping_money <- shopping_money - 20
+  money_left <- shopping_money
+  
+  v2 <- paste("Moeny left is:" , money_left)
+    print(v2)
+  
+  }
+
+#For loop _________________________________________________________________________
+
+vec <- 1:100
+
+for (e in vec) {
+  if (e == 20)
+      break
+  if(e == 4)
+    next
+  print (e)
+}
+
+#Repeating loops _________________________________________________________________
+
+i <- 10
+
+repeat{
+  v1 <- "my value is"
+  v2 <- paste(v1,i)
+  print(v2)
+  if(i<20)
+    break
+}
